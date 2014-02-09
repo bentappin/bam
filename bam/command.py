@@ -180,9 +180,10 @@ class Command(object):
         )
 
     def execute(self):
-        command = clint.args.get(0)
-        major = clint.args.get(1)
-        minor = clint.args.get(2)
+        args = clint.Args()
+        command = args.get(0)
+        major = args.get(1)
+        minor = args.get(2)
         if not command:
             return self.overview()
         self.delegate(command, major, minor)
